@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Angular-nvD3 Pie Chart</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    
+    <link rel="stylesheet" href="https://rawgit.com/novus/nvd3/v1.1.15-beta/nv.d3.min.css"/>
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16"></script>
+    <script src="https://rawgit.com/mbostock/d3/master/d3.min.js"></script>
+    <script src="https://rawgit.com/novus/nvd3/v1.1.15-beta/nv.d3.min.js"></script>
+    <script src="https://rawgit.com/krispo/angular-nvd3/v0.1.1/dist/angular-nvd3.js"></script>
+    
+    
+    <script>
+       var app = angular.module('plunker', ['nvd3']);
+       app.controller('myController', ['$scope', '$http',function($scope,$http) {
+       var colors = ["red", "green", "blue"];
+       $scope.clickButton = function() {
+       $http.get('data.json').success(function(data) {
+       console.log("Hello")
+       $scope.items = data;
+       $scope.options = {
+            chart: {
+              type: 'pieChart',
+              height: 500,
+              x: function(d){return d.key;},
+              y: function(d){return d.y;},
+              color: function(d,i){
+                return (d.data && d.data.color) || colors[i % colors.length]
+              },
+              showLabels: true,
+              transitionDuration: 500,
+              labelThreshold: 0.01,
+              legend: {
+                  margin: {
+                      top: 5,
+                      right: 35,
+                      bottom: 5,
+                      left: 0
+                    }
+                }
+          
+            }
+          };    
+       });
+  };
+}]);
+    console.log("Hello")
+    </script>
+    
+  </head>
+
+  <body ng-controller="myController">
+     <div ng-app="plunker">
+        <div ng-controller="myController">
+          <button ng-click='clickButton()'><h1>Click Me</h1></button>
+          
+          <ng-repeat="item in items">
+          <ng-repeat="(key, val) in item">{{key}}: {{val}}
+          <nvd3 options="options" data = "items"></nvd3>  
+          
+            
+                
+        </div>
+    </div>
+  </body>
+
+</html>
