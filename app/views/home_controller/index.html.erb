@@ -2,6 +2,19 @@
 <html ng-app="plunker">
 
   <head>
+  <style>
+  table, th , td  {
+      border: 1px solid blue;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    table tr:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+    table tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+    </style>
     <meta charset="utf-8" />
     <title>Angular-nvD3 Pie Chart</title>
     <script>document.write('<base href="' + document.location + '" />');</script>
@@ -59,8 +72,13 @@
           
           <ng-repeat="item in items">
           <ng-repeat="(key, val) in item">{{key}}: {{val}}
-          <nvd3 options="options" data = "items"></nvd3>  
-          
+          <nvd3 options="options" data = "items"></nvd3>
+          <table>  
+          <tr ng-repeat="item in items">
+            <td ng-repeat="(key, val) in item">{{key}}: {{val}}
+            </td>
+          </tr>
+          </table>
             
                 
         </div>
