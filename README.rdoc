@@ -1,28 +1,55 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1.What server framework did you choose and why?
+  The server framework which i chose was Ruby on Rails. Reasons for choosing Ruby on Rails,
+              1.Open-source
+              2.Well-documented
+              3.Rapid development model
+              4.Direct access to HTML, CSS, Javascript
+              5.Tool options
+              
+2.What Client framework did you choose and why?
+  The client framework which i chose was AngularJS. Reasons for choosing AngularJS,
+              1.A declarative user interface
+              2.Data models in Angular are plain old javascript objects.
+              3.Lesser lines of code
+              4.Flexibility with filters
+              5.Unit testing ready
+              
+3.What aspect of implementation did you find easy and why?
+  The coding part of the project was the most easiest aspect of the project as the number of lines of code were very less and and can be easily understood by everyone who knows HTML. AngularJS makes it more easier by reducing the complexity of the code.
+  
+4.What aspect of implementation did you find difficult and why?
+  The configuration part of the project gave a real tough time. Especially the configuration of Angular and Heroku were very tricky and consumed a lot of time. The configuration of postgres in Angular was particularly difficult as it did not have a proper source from where we could configure.
+  
+5.What components OTHER than your client and server framework did you install,if any, and if so, what is their purpose for your solution?
+  1.Bower
+      Bower is a JavaScript command line application which helps in managing various website components.Bower works by fetching and installing packages from all over, taking care of finding,downloading and thereby saving our time.
+      
+  2.npm
+      npm is a package manager for javascript.
+      
+6.What Ubuntu commands are required to deploy and run your server?
+    First we are pushing our local project folder to Github account. The commands to be used for pushing to Github,
+              git init
+              git add README.md
+              git commit -m "first commit"
+              git remote add origin https://github.com/vivek0293/cse5335-vxs5278.git
+              git push -u origin master
+  
+    After pushing our project to Github, we are now deploying that in Heroku. Commands for deploying,
+              $ heroku login
+              
+    Clone the repository
+      Use Git to clone project's source code to your local machine.
+              $ heroku git:clone -a project_name
+              $ cd project_name
+              
+    Deploy your changes
+      Make some changes to the code you just cloned deploy them to Heroku using Git.
+              $ git add .
+              $ git commit -am "make it better"
+              $ git push heroku master
+  
+  
+  
